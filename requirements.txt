@@ -1,5 +1,6 @@
 Flask==3.0.3
 mysql-connector-python==2.2.9
-for login enter this 
+
+for login insert this 
 username : admin
 password : 1234

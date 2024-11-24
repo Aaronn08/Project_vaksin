@@ -1,25 +1,69 @@
 {% extends 'layout.html' %}
 {% block konten %}
-    <h1>LOGIN</h1>
-   <form action="/aksi_login" method="post">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Username</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
-        <div id="emailHelp" class="form-text">Kami tidak akan pernah menyebarkan data anda kepada orang lain</div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1"name="password" required>
-      </div>
+<style>
 
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"required checked>
-        <label class="form-check-label" for="flexCheckChecked">
-          <p><a href="{{ url_for('syarat' ) }}" class="link-warning">Saya sudah membaca syarat dan ketentuan</a></p>
-        </label>
-      </div>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+ 
+    }
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+    .card {
+        width: 100%;
+        max-width: 400px;
+        background-color: white;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+    }
+
+    .form-control {
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        background-color: burlywood;
+        border: none;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #d1a574;
+    }
+</style>
+
+<div class="card">
+    <h4 class="text-center mb-4">LOGIN</h4>
+    <form action="/aksi_login" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="terms" required>
+            <label class="form-check-label" for="terms">
+                <a href="{{ url_for('syarat') }}" class="link-warning">Saya menyetujui syarat dan ketentuan yang berlaku</a>
+            </label>
+        </div>
+        <div class="text-center mt-3 hint-box">
+          <p class="text-secondary">Username: <strong>admin</strong></p>
+          <p class="text-secondary">Password: <strong>1234</strong></p>
+      </div>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
+</div>
+
 
 {% endblock %}

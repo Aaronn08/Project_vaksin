@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Nov 2024 pada 08.26
+-- Waktu pembuatan: 24 Nov 2024 pada 11.38
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -62,7 +62,7 @@ CREATE TABLE `vaksin` (
 
 INSERT INTO `vaksin` (`id_vaksin`, `jenis_vaksin`, `umur`, `lokasi`, `tahun`) VALUES
 (1, 'covid19', 20, 'puskesmas Alang-Alang Lebar', 2023),
-(2, 'cacar air', 17, 'puskesmas Sekip', 2020),
+(2, 'cacar air', 17, 'puskesmas Sekip', 2021),
 (4, 'rubella dan DT', 7, 'puskesmas Kenten', 2024),
 (5, 'Influenza', 30, 'puskesmas Sukarami', 2015),
 (6, 'Tifoid', 20, 'puskesmas 11 ilir', 2019),
@@ -98,7 +98,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `vaksin`
 --
 ALTER TABLE `vaksin`
-  MODIFY `id_vaksin` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_vaksin` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

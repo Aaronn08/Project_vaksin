@@ -1,28 +1,48 @@
 {% extends 'layout.html' %}
 
 {% block konten %}
-    <table border="1">
-        <tr>
-            <th>Jenis vaksin</th>
-            <th>Umur</th>
-            <th>Lokasi</th>
-            <th>Tahun</th>
-            <th>Opsi</th> 
-        </tr>
+<style>
 
-        {% for result in data %}
-        <tr>
-            <td>{{ result[1] }}</td>
-            <td>{{ result[2] }}</td>
-            <td>{{ result[3] }}</td>
-            <td>{{ result[4] }}</td>
-            <td> <a href="/update/{{ result[0] }}">UPDATE</a> - <a href="/hapus/{{ result[0] }}">DELETE</a> </td>
-        </tr>
+    body {
+        min-height: 100vh;
+        margin: 0;
+    }
 
-       
-        {% endfor %}
-
-    </table>
+</style>
+<a href="{{ url_for('logout') }}" class="btn btn-danger" style="position: fixed; top: 20px; right: 20px;">Logout 🚪</a>
+<div class="container mt-4">
     
-    <a class="btn btn-success" href="/admin">Tambahkan data lainnya</a>
+    <h2 class="mb-4 text-center">Daftar Data Vaksin</h2>
+    
+    <table class="table table-bordered table-striped">
+        <head class="thead-dark">
+            <tr>
+                <th>Jenis Vaksin</th>
+                <th>Umur</th>
+                <th>Lokasi</th>
+                <th>Tahun</th>
+                <th>Opsi</th>
+            </tr>
+        </head>
+        <body>
+            {% for result in data %}
+            <tr>
+                <td>{{ result[1] }}</td>
+                <td>{{ result[2] }}</td>
+                <td>{{ result[3] }}</td>
+                <td>{{ result[4] }}</td>
+                <td>
+                    <a href="/update/{{ result[0] }}" class="btn btn-warning btn-sm">UPDATE</a>
+                    <a href="/hapus/{{ result[0] }}" class="btn btn-danger btn-sm">DELETE</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </body>
+    </table>
+
+
+    <div class="text-center mt-3">
+    <a href="/admin" class="btn btn-dark btn-lg">Tambahkan Data</a>
+</div>
+</div>
 {% endblock %}

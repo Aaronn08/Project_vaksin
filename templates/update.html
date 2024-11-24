@@ -1,12 +1,70 @@
 {% extends 'layout.html' %}
+
 {% block konten %}
-    <h1>INPUT DATA VAKSIN</h1>
-    <form action="/aksiupdate" method="post" >
-        <input type="hidden" name="id_vaksin" placeholder="Enter id" value="{{ value[0] }}" >
-        <input type="text" name="jenis_vaksin" placeholder="Enter jenis" value="{{ value[1] }}" ><br>
-        <input type="number" name="umur" min="1" max="100"  placeholder="Enter umur" value="{{ value[2] }}"><br>
-        <textarea name="lokasi" placeholder="Enter lokasi" >{{ value[3] }}</textarea><br>
-        <input type="number" name="tahun" min="1900" max="2024" placeholder="Tahun" ><br>
-        <button type="submit">KIRIM</button>
+<style>
+    .container {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        border: 1px solid gray;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="text-dark">Update Data Vaksin</h1>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger" style="position: fixed; top: 20px; right: 20px;">Logout 🚪</a>
+
+    <form action="/aksiupdate" method="post">
+        <input type="hidden" name="id_vaksin" value="{{ value[0] }}" >
+
+        <div class="mb-3">
+            <label for="jenis_vaksin">Jenis Vaksin</label>
+            <input type="text" name="jenis_vaksin" id="jenis_vaksin" placeholder="Enter jenis" value="{{ value[1] }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="umur">Umur</label>
+            <input type="number" name="umur" id="umur" min="1" max="100" placeholder="Enter umur" value="{{ value[2] }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="lokasi">Lokasi</label>
+            <textarea name="lokasi" id="lokasi" placeholder="Enter lokasi" required>{{ value[3] }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="tahun">Tahun</label>
+            <input type="number" name="tahun" id="tahun" min="1900" max="2024" placeholder="Tahun" value="{{ value[4] }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
+
 {% endblock %}

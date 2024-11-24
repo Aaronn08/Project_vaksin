@@ -1,38 +1,50 @@
 {% extends 'layout.html' %}
 
 {% block konten %}
+<style>
 
-<h1>INPUT DATA VAKSIN</h1>
-
-<form action="/simpan" method="post" >
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Jenis vaksin</label>
-      <input type="text" name="jenis_vaksin" placeholder="Masukan jenis vaksin"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"required><br>
-
+  form{
+    max-width: 450px;
+    margin-left: 300px;
+  }
+  div h1{
+    margin-left: 300px;
+    /* background-color: aqua; */
+  }
+</style>
+<div class="container mt-4">
+ 
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="h1">
+        <h1 class="text-dark">Input Data Vaksin</h1>
+      </div>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger" style="position: fixed; top: 20px; right: 20px;">Logout 🚪</a>
+        <a href="{{ url_for('tampil') }}" class="btn btn-dark" style="position: fixed; top: 20px; right: 130px;">Data vaksin</a>
     </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Umur</label>
-      <input type="number"  name="umur" min="1" max="100" placeholder="Umur" class="form-control" id="exampleInputPassword1"required><br>
-    </div>
 
-    <div class="mb-3">
-    <label for="exampleInputPassword2" class="form-label">Lokasi</label>
-    <textarea name="lokasi" placeholder="Masukan puskesmas"class="form-control" id="exampleInputPassword2" required></textarea><br>
- </div>
+    <form action="/simpan" method="post">
+        <div class="mb-3">
+            <label for="jenisVaksin" class="form-label">Jenis Vaksin</label>
+            <input type="text" name="jenis_vaksin" id="jenisVaksin" class="form-control" placeholder="Masukan jenis vaksin" required>
+        </div>
 
- <div>
-    <label for="exampleInputPassword3" class="form-label">Kapan di vaksin</label>
-    <input type="number" name="tahun" min="1800" max="2024" placeholder="Tahun" class="form-control" id="exampleInputPassword3"required><br>
+        <div class="mb-3">
+            <label for="umur" class="form-label">Umur</label>
+            <input type="number" name="umur" id="umur" class="form-control" min="1" max="100" placeholder="Masukkan umur" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="lokasi" class="form-label">Lokasi</label>
+            <textarea name="lokasi" id="lokasi" class="form-control" placeholder="Masukan puskesmas" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="tahun" class="form-label">Kapan di vaksin</label>
+            <input type="number" name="tahun" id="tahun" class="form-control" min="1800" max="2024" placeholder="Tahun vaksin" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-
-
-    <h1><a href="{{ url_for('logout' ) }}"class="link-danger">LOGOUT 🚪</a></h1>
-
-
 {% endblock %}
-
- 
